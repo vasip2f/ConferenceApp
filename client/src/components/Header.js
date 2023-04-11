@@ -48,7 +48,11 @@ const Header = () => {
                         <h6 style={{marginRight:"30px",marginTop:"17px", color: "white"}}>Welcome :{user?.result?.email}</h6>
                     )}
                     <MDBNavbarItem >
+<<<<<<< HEAD
                         <MDBNavbarLink href='/home'>
+=======
+                        <MDBNavbarLink href=''>
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
                              
                          <p className='header-text' style={{color:"white"}}>Calendar</p>
 
@@ -57,16 +61,16 @@ const Header = () => {
                     {user?.result?._id && (
                         <>
                          <MDBNavbarItem >
-                        <MDBNavbarLink href='/home'>
+                        {/* <MDBNavbarLink href='/home'>
                             <p className='header-text' style={{color: "white"}}>Meeting Room</p>
 
-                        </MDBNavbarLink>
+                        </MDBNavbarLink> */}
                     </MDBNavbarItem>
                     <MDBNavbarItem >
-                        <MDBNavbarLink href='/dashboard'>
+                        {/* <MDBNavbarLink href='/dashboard'>
                             <p className='header-text' style={{color: "white"}}>Admin View</p>
 
-                        </MDBNavbarLink>
+                        </MDBNavbarLink> */}
                     </MDBNavbarItem>
                         </>
                     )}

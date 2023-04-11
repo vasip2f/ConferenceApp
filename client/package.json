@@ -32,7 +32,10 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "react-toastify": "^9.1.1",
+=======
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.4"
   },

@@ -30,8 +30,12 @@ export default function () {
     const [EndTime, setEndTime] = useState(new Date());
     const [availability, setAvailability] = useState(true);
     const calendarRef = useRef(null);
+<<<<<<< HEAD
     const [eventList, setEventList] = useState([]);
     const [Data, setData] = useState([])
+=======
+    const [eventList, setEventList] = useState([])
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
 
     const handleclick = async (event) => {
         event.preventDefault();
@@ -49,10 +53,23 @@ export default function () {
             }
         }
         await axios.post('http://localhost:5000/create-event', payload, config)
+<<<<<<< HEAD
             .then(() => { console.log("added data from axios") })
             .catch((e) => { console.log("unable to added data from axios: " + e) })
 
         window.location.reload();
+=======
+
+            .then(() => { console.log("added data from axios") })
+            .catch((e) => { alert("the slot is already booked") })
+
+        // if(!payload){
+        //     const message = `slot is already booked: ${payload.statusText}`;
+        //     window.alert(message);
+        // }
+
+        // window.location.reload();
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
     }
 
 
@@ -76,6 +93,7 @@ export default function () {
         return el;
     }
 
+<<<<<<< HEAD
     useEffect(() => {
         axios.get('http://localhost:5000/get-events')
             .then((d) => {
@@ -90,6 +108,10 @@ export default function () {
 
     console.log(Data)
     
+=======
+
+
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
 
 
 
@@ -134,17 +156,23 @@ export default function () {
                         ref={calendarRef}
                         plugins={[dayGridPlugin, timeGridPligin, InteractionPlugin, ListPlugin]}
                         initialView="dayGridMonth"
+<<<<<<< HEAD
                         events={
                            Data
                           }
+=======
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
                         headerToolbar={{
                             start: 'today prev,next', // will normally be on the left. if RTL, will be on the right
                             center: 'title',
                             end: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",// will normally be on the right. if RTL, will be on the left
 
                         }}
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
                         // eventAdd={(event) => handleclick(event)}
 
                         // datesSet={(date)=>getallevents(date)}
