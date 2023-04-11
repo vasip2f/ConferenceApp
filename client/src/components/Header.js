@@ -25,7 +25,7 @@ const Header = () => {
         dispatch(setLogout())
     }
    return (
-   <MDBNavbar expand="lg"  style={{backgroundColor:"blue" }}>
+   <MDBNavbar  expand="lg"  style={{backgroundColor:"blue", }}>
     <MDBContainer>
         <MDBNavbarBrand  href = '/' style={{color:"white",fontWeight:"600" ,fontSize:"22px", fontFamily: "arial"}}>
            Conference Room Booking App
@@ -47,13 +47,13 @@ const Header = () => {
                     {user?.result?._id &&(
                         <h6 style={{marginRight:"30px",marginTop:"17px", color: "white"}}>Welcome :{user?.result?.email}</h6>
                     )}
-                    {/* <MDBNavbarItem >
+                    <MDBNavbarItem >
                         <MDBNavbarLink href='/home'>
                              
                          <p className='header-text' style={{color:"white"}}>Calendar</p>
 
                         </MDBNavbarLink>
-                    </MDBNavbarItem> */}
+                    </MDBNavbarItem>
                     {user?.result?._id && (
                         <>
                          <MDBNavbarItem >
@@ -96,7 +96,6 @@ const Header = () => {
                 </MDBNavbarNav>
 
             </MDBCollapse>
-            
 
         
     </MDBContainer>

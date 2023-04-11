@@ -5,8 +5,11 @@ import "react-datetime/css/react-datetime.css";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import 'reactjs-popup/dist/index.css';
 import {Provider} from 'react-redux';
-import store from './redux/store'
+import store from './redux/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Datetime from 'react-datetime';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
