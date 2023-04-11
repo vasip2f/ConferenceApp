@@ -107,11 +107,11 @@ function Table() {
 
             <div className='row'>
                 <div className='mt-5 mb-4'>
-<<<<<<< HEAD
+
                     <Button varient='primary'  onClick={() => { handlePostShow() }} ><i className='fa fa-plu'></i>Add New event</Button>
-=======
+
                     {/* <Button varient='primary'  onClick={() => { handlePostShow() }} ><i className='fa fa-plu'></i>Add New event</Button> */}
->>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
+
                 </div>
             </div>
             <div className='row'>
@@ -247,11 +247,10 @@ function Table() {
                                     {/* <Datetime type='text' className='form-control' value={EndTime} onChange={Datetime => setEndTime(Datetime)} placeholder='Event End Time' /> */}
                                 </div>
                             </div>
-<<<<<<< HEAD
+
                             <Button type='submit' className='btn btn-success mt-4' onClick={handleSubmit}>Add new Event</Button>
-=======
-                            {/* <Button type='submit' className='btn btn-success mt-4' onClick={handleSubmit}>Add new Event</Button> */}
->>>>>>> 89b7a62df508d07d70f07071cbbc6dd11926d26f
+                    {/* <Button type='submit' className='btn btn-success mt-4' onClick={handleSubmit}>Add new Event</Button> */}
+
                         </div>
                     </Modal.Body>
                     <Modal.Footer>
