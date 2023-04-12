@@ -9,14 +9,18 @@ const cors = require("cors");
 const logIn = require("./Routes/signin");
 const googleSign = require("./Routes/googleSignIn");
 const TourController = require("./controller/tour");
+const User=require("./models/signuser")
 const multer = require("multer");
 const fs = require('fs')
-const imageModel = require('./models/Rooms');
 const EventRoute = require("./Routes/EventRoutes");
 const app = express()
 app.use(express.json())
 app.use(cors())
 app.use('/', signup)
+app.get('/allUsers',async (req,res)=>{
+  const allUsers=await User.find()
+  res.send(allUsers)
+})
 app.use('/', logIn)
 app.use('/', googleSign)
 app.use('/', TourController)

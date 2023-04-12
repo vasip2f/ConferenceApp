@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
 import {
@@ -16,7 +18,8 @@ import {
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { setLogout } from '../redux/features/authSlice'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import FaFontAwesome  from 'react-icons/fa'
 const Header = () => {
 
     const [show, setShow] = useState(false)
@@ -30,7 +33,7 @@ const Header = () => {
         <MDBNavbar expand="lg" style={{ backgroundColor: "blue", }}>
             <MDBContainer>
                 <MDBNavbarBrand href='/' style={{ color: "white", fontWeight: "600", fontSize: "22px", fontFamily: "arial" }}>
-                    Conference Room Booking App
+                𝕮𝖔𝖓𝖋𝖊𝖗𝖊𝖓𝖈𝖊 𝕽𝖔𝖔𝖒 𝕭𝖔𝖔𝖐𝖎𝖓𝖌 𝕬𝖕𝖕
                 </MDBNavbarBrand>
                 {/* <MDBNavbarToggler
         type='button'
@@ -46,17 +49,23 @@ const Header = () => {
 
                 <MDBCollapse show={show} navbar>
                     <MDBNavbarNav right fullWidth={false} className="mb-2 mb-lg-0">
+
                         {user?.result?._id && (
-                            <h6 style={{ marginRight: "30px", marginTop: "17px", color: "white" }}>Welcome :{user?.result?.email}</h6>
+                            
+                            <h6 style={{ marginRight: "30px", marginTop: "27px", color: "white" }}>𝐰𝐞𝐥𝐜𝐨𝐦𝐞🌺{user?.result?.name}</h6>
                         )}
                         <MDBNavbarItem >
 
                             <MDBNavbarLink href='/home'>
 
-                                <MDBNavbarLink href=''>
+                                <MDBNavbarLink href='/home/ComponentPage'>
 
 
-                                    <p className='header-text' style={{ color: "white" }}>Calendar</p>
+                                    <p className='header-text' style={{ color: "white" }}>
+                                    {/* <FaFontAwesome icon="fa-regular fa-calendar-days" fade size="2xs" /> */}
+                                    
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    </p>
 
                                 </MDBNavbarLink>
                                 </MDBNavbarLink>
@@ -80,7 +89,7 @@ const Header = () => {
                         {user?.result?._id ? (
                             <MDBNavbarItem >
                                 <MDBNavbarLink href='/login'>
-                                    <p className='header-text' style={{ color: "white" }} onClick={handleLogout}>Logout</p>
+                                    <p className='header-text' style={{ color: "white", marginTop: "14px" }} onClick={handleLogout}>𝐋𝐨𝐠𝐨𝐮𝐭</p>
 
                                 </MDBNavbarLink>
                             </MDBNavbarItem>
@@ -88,7 +97,7 @@ const Header = () => {
                         ) : (
                             <MDBNavbarItem >
                                 <MDBNavbarLink href='/login'>
-                                    <p className='header-text' style={{ color: "white" }}>Login</p>
+                                    <p className='header-text' style={{ color: "white",marginTop: "14px" }}>Login</p>
 
                                 </MDBNavbarLink>
                             </MDBNavbarItem>

@@ -24,6 +24,7 @@ import 'react-clock/dist/Clock.css';
 
 export default function () {
 
+    const [username, setuserName] = useState("");
     const [title, setTitle] = useState("");
     const [roomName, setroomName] = useState("");
     const [StartTime, setStartTime] = useState(new Date());
@@ -31,16 +32,18 @@ export default function () {
     const [availability, setAvailability] = useState(true);
     const calendarRef = useRef(null);
 
+
     const [eventList, setEventList] = useState([]);
     const [Data, setData] = useState([])
 
-    
+
 
 
     const handleclick = async (event) => {
         event.preventDefault();
         // console.log(title, roomName, StartTime, EndTime, availability);
         const payload = {
+            username: username,
             title: title,
             roomName: roomName,
             StartTime: StartTime,
@@ -54,10 +57,10 @@ export default function () {
         }
         await axios.post('http://localhost:5000/create-event', payload, config)
 
-            .then(() => { console.log("added data from axios") })
-            .catch((e) => { console.log("unable to added data from axios: " + e) })
+            .then(() => {alert("Event is Confirmed") })
+            .catch((e) => {  alert("The slot is already booked") })
 
-        // window.location.reload();
+            window.location.reload()
 
 
             .then(() => { console.log("added data from axios") })
@@ -97,8 +100,8 @@ export default function () {
     useEffect(() => {
         axios.get('http://localhost:5000/get-events')
             .then((d) => {
-                const cdata=d.data.map(item=>{
-                    return {title:item.title,date:item.StartTime, date:item.EndTime}
+                const cdata = d.data.map(item => {
+                    return { title: item.title, date: item.StartTime, EndTime }
                 })
                 setData(cdata)
             })
@@ -107,7 +110,7 @@ export default function () {
     }, [])
 
     console.log(Data)
-    
+
 
 
 
@@ -124,7 +127,8 @@ export default function () {
                     <div>
                         <form onSubmit={handleclick}>
 
-                            <input placeholder="Title" value={title} onChange={e => setTitle(e.target.value)} required />
+                            <input placeholder="Enter Your Name" value={username} onChange={e => setuserName(e.target.value)} required />
+                            <input placeholder="Enter Event Title" value={title} onChange={e => setTitle(e.target.value)} required />
                             <select placeholder="Select Room" value={roomName} onChange={e => setroomName(e.target.value)} required>
                                 <option>Big Room</option>
                                 <option>Small Room</option>
@@ -133,11 +137,11 @@ export default function () {
                             </select>
                             <div>
                                 <label>StartTime</label>
-                                <DateTimePicker value={StartTime} onChange={date => setStartTime(date)} required />
+                                <Datetime value={StartTime} onChange={date => setStartTime(date)} required />
                             </div>
                             <div>
                                 <label>EndTime</label>
-                                <DateTimePicker value={EndTime} onChange={date => setEndTime(date)} required />
+                                <Datetime value={EndTime} onChange={date => setEndTime(date)} required />
                             </div>
                             <button >Add Event</button>
                         </form>
@@ -155,7 +159,7 @@ export default function () {
                         initialView="dayGridMonth"
                         events={
                             Data
-                          }
+                        }
 
                         headerToolbar={{
                             start: 'today prev,next', // will normally be on the left. if RTL, will be on the right

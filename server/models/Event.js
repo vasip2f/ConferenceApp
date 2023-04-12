@@ -1,6 +1,11 @@
 const {model, Schema, default: mongoose} = require('mongoose')
 
+
 const EventSchema = Schema({
+    username:{
+        type:String,
+        required:[true, "Please Enter Your name"]
+    },
     title: {
         type: String,
         required: [true, "Title is required"]
@@ -20,9 +25,13 @@ const EventSchema = Schema({
     availability:{
         type: Boolean,
         required: true
-    },
+    }
+   
+});
 
-})
+
 
 const event = new mongoose.model("Event", EventSchema);
+
+
 module.exports = event;

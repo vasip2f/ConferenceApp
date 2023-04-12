@@ -2,6 +2,8 @@ const {model} = require("mongoose");
 const Event = require("../models/Event");
 const moment = require("moment");
 
+
+
 const router = require("express").Router();
 
 const userEvent = require('../models/Event');
@@ -10,7 +12,7 @@ const userEvent = require('../models/Event');
 
 const CreateEvent = async (req, res) => {
 
-    const {title,roomName,StartTime,EndTime,availability} = req.body
+    const {username,title,roomName,StartTime,EndTime,availability} = req.body
 
     {
         try {
@@ -26,11 +28,13 @@ const CreateEvent = async (req, res) => {
             }
 
             const EventResult = await userEvent.create({   
+                username,
                 title,
                 roomName,
                 StartTime,
                 EndTime,
                 availability,
+               
             });
             res.status(201).json({EventResult});
         } catch (error) {
@@ -42,13 +46,22 @@ const CreateEvent = async (req, res) => {
 
 };
 
+//demo
+
+// const GetEventRoute = async(req, res) => {
+//     const _id = req.params.id;
+//         const allevents = await userEvent.find(_id)
+//         res.send(allevents)
+// };
+
 
 const GetEventRoute = async(req, res) => {
-        const allevents = await userEvent.find()
-        res.send(allevents)
-
+    const allevents = await userEvent.find()
+    res.send(allevents)
 
 };
+
+
 
 const DeleteEvent = async (req, res) =>{
     const _id = req.params.id;

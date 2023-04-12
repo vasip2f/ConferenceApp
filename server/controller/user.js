@@ -31,4 +31,6 @@ const User  = require('../models/signuser')
     }
 
 }
+
+
 module.exports= signUp
